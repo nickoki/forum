@@ -48,3 +48,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # User Devise for the User Model
 gem 'devise'
+# Model voting
+gem 'acts_as_votable'

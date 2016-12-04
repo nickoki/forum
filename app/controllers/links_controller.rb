@@ -64,6 +64,20 @@ class LinksController < ApplicationController
     end
   end
 
+  # Upvote for acts_as_votable
+  def upvote
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back
+  end
+
+  # Downvote for acts_as_votable
+  def downvote
+    @link = Link.find(params[:id])
+    @link.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link

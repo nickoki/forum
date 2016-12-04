@@ -10,5 +10,13 @@
   <%= @link.url %>
 </p>
 
+<a><%= link_to 'Upvote', upvote_link_path(@link), method: :put, class: "btn" %>
+  <%= @link.get_upvotes.size %>
+</a>
+<a>
+  <%= link_to 'Downvote', downvote_link_path(@link), method: :put %>
+  <%= @link.get_downvotes.size %>
+</a>
+
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>

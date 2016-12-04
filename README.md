@@ -4,16 +4,15 @@
 
 - Ruby on Rails
 - Postgres
-- Angular
 - [Froala](https://www.froala.com/wysiwyg-editor) WYSIWYG Editor
 
 ### Minimum Viable Product
 
 - [ ] Repo for essays/post
-- [ ] Security: password protection
+- [x] Security: password protection
 
 ### Additional Features
 
-- [ ] User Auth
+- [x] User Auth
 - [ ] Commenting
 - [ ] Up/downvoting

@@ -78,6 +78,13 @@ class LinksController < ApplicationController
     redirect_to :back
   end
 
+  # Remove vote (unvote) for acts_as_votable
+  def remove_vote
+    @link = Link.find(params[:id])
+    @link.unliked_by current_user
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link

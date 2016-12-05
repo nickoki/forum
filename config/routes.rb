@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  root to: "links#index"
+  root to: "posts#index"
 
   devise_for :users
 
-  resources :links do
+  resources :posts do
     member do
-      put "upvote",      to: "links#upvote"
-      put "downvote",    to: "links#downvote"
-      put "remove_vote", to: "links#remove_vote"
+      put "upvote",      to: "posts#upvote"
+      put "downvote",    to: "posts#downvote"
+      put "remove_vote", to: "posts#remove_vote"
     end
     resources :comments
   end

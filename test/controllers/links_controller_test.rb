@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class LinksControllerTest < ActionDispatch::IntegrationTest
+class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @link = links(:one)
+    @post = posts(:one)
   end
 
   test "should get index" do
-    get links_url
+    get posts_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_link_url
+    get new_post_url
     assert_response :success
   end
 
-  test "should create link" do
-    assert_difference('Link.count') do
-      post links_url, params: { link: { title: @link.title, url: @link.url } }
+  test "should create post" do
+    assert_difference('Post.count') do
+      post posts_url, params: { post: { title: @post.title, url: @post.url } }
     end
 
-    assert_redirected_to link_url(Link.last)
+    assert_redirected_to post_url(Post.last)
   end
 
-  test "should show link" do
-    get link_url(@link)
+  test "should show post" do
+    get post_url(@post)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_link_url(@link)
+    get edit_post_url(@post)
     assert_response :success
   end
 
-  test "should update link" do
-    patch link_url(@link), params: { link: { title: @link.title, url: @link.url } }
-    assert_redirected_to link_url(@link)
+  test "should update post" do
+    patch post_url(@post), params: { post: { title: @post.title, url: @post.url } }
+    assert_redirected_to post_url(@post)
   end
 
-  test "should destroy link" do
-    assert_difference('Link.count', -1) do
-      delete link_url(@link)
+  test "should destroy post" do
+    assert_difference('Post.count', -1) do
+      delete post_url(@post)
     end
 
-    assert_redirected_to links_url
+    assert_redirected_to posts_url
   end
 end

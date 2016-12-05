@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @post.url %>
+</p>
+
+<a><%= link_to 'Upvote', upvote_post_path(@post), method: :put, class: "btn" %>
+  <%= @post.get_upvotes.size %>
+</a>
+<a>
+  <%= link_to 'Downvote', downvote_post_path(@post), method: :put %>
+  <%= @post.get_downvotes.size %>
+</a>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<h3><%= @post.comments.count %> Comments</h3>
+
+<div id="comments">
+  <%# render :partial => @post.comments %>
+  <%= render @post.comments, collection: @comments %>
+</div>
+
+<%= form_for [@post, Comment.new] do |f| %>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Comment" %>
+  </div>
+<% end %>

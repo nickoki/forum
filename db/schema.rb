@@ -16,22 +16,22 @@ ActiveRecord::Schema.define(version: 20161204232604) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "link_id"
+    t.integer  "post_id"
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["link_id"], name: "index_comments_on_link_id", using: :btree
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "links", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "url"
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_links_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20161204232604) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
-  add_foreign_key "comments", "links"
+  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "links", "users"
+  add_foreign_key "posts", "users"
 end

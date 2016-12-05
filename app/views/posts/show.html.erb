@@ -7,7 +7,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @post.body %>
+  <xml class="fr-tag"><%=  @post.body.html_safe %></xml>
 </p>
 
 <a><%= link_to 'Upvote', upvote_post_path(@post), method: :put, class: "btn" %>

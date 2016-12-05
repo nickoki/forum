@@ -7,7 +7,7 @@
     <tr>
       <th colspan="3"></th>
       <th>Title</th>
-      <th>Url</th>
+      <th>Body</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@
           </td>
         <% end %>
         <td><%= post.title %></td>
-        <td><%= post.url %></td>
+        <td><%= post.body %></td>
         <td><%= link_to 'Show', post %></td>
         <% if post.user == current_user %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>

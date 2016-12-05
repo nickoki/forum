@@ -50,3 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # Model voting
 gem 'acts_as_votable'
+# Froala WYSIWYG Editor
+gem 'wysiwyg-rails', '~> 2.3', '>= 2.3.5'
+# Font Awesome icons
+gem 'font-awesome-rails'
